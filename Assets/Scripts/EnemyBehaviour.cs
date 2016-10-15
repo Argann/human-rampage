@@ -21,7 +21,7 @@ public class EnemyBehaviour : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 
         //Et le regarde
-        if (transform.position.x < player.transform.position.x)
+        if (transform.position.x > player.transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }

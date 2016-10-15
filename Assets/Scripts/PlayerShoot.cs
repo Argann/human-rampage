@@ -9,6 +9,8 @@ public class PlayerShoot : MonoBehaviour {
 
     private GameObject ammo;
 
+    private GameObject gun;
+
     private float ammo_speed;
 
     private Vector2 lookAt;
@@ -20,6 +22,7 @@ public class PlayerShoot : MonoBehaviour {
         cooldown = GameManager.GetManager().ShootCooldown;
         ammo = GameManager.GetManager().Ammo;
         ammo_speed = GameManager.GetManager().AmmoSpeed;
+        gun = GameObject.Find("Gun");
 	}
 	
 	// Update is called once per frame
@@ -34,7 +37,7 @@ public class PlayerShoot : MonoBehaviour {
 
         AudioManager.GetManager().PlayShoot();
 
-        GameObject go = (GameObject)Instantiate(ammo, transform.position, Quaternion.identity);
+        GameObject go = (GameObject)Instantiate(ammo, gun.transform.position, Quaternion.identity);
 
         go.GetComponent<Rigidbody2D>().velocity = lookAt * ammo_speed;
 
