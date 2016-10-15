@@ -3,6 +3,12 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+
+    /**
+     * ====================================================
+     *                     JOUEUR
+     * ====================================================
+     */
     [Header("Joueur")]
 
     [SerializeField]
@@ -32,6 +38,11 @@ public class GameManager : MonoBehaviour {
         set { playerYSpeed = value; }
     }
 
+    /**
+     * ====================================================
+     *                     MUNITIONS
+     * ====================================================
+     */
     [Header("Munitions")]
 
     [SerializeField]
@@ -67,7 +78,11 @@ public class GameManager : MonoBehaviour {
         set { ammoSpeed = value; }
     }
 
-
+    /**
+     * ====================================================
+     *                     ENNEMI
+     * ====================================================
+     */
     [Header("Ennemi")]
 
     [SerializeField]
@@ -77,6 +92,15 @@ public class GameManager : MonoBehaviour {
         get { return enemy; }
         set { enemy = value; }
     }
+
+    [SerializeField]
+    private int enemyDamage;
+
+    public int EnemyDamage {
+        get { return enemyDamage; }
+        set { enemyDamage = value; }
+    }
+
 
     [SerializeField]
     private int enemyHealth;
@@ -117,6 +141,12 @@ public class GameManager : MonoBehaviour {
         get { return spawnPoints; }
         set { spawnPoints = value; }
     }
+
+    /**
+     * ====================================================
+     *                     MISC
+     * ====================================================
+     */
 
     [Header("Misc")]
     [SerializeField]
