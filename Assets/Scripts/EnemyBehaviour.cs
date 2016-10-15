@@ -6,6 +6,14 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    private int hp;
+    public int HP
+    {
+        get { return hp; }
+    }
+
+
     // Use this for initialization
     void Start () {
 	    
@@ -22,5 +30,14 @@ public class EnemyBehaviour : MonoBehaviour {
         //Et le regarde
         Vector3 dir = mousePosition - transform.position;
         this.GetComponent<SpriteRenderer>().flipX = (dir.x < 0);
+    }
+
+    public void Attack(int value)
+    {
+        hp -= value;
+        if (hp == 0)
+        {
+            Destroy(this);
+        }
     }
 }
