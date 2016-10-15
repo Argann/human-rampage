@@ -6,13 +6,6 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField]
     private float speed;
 
-    [SerializeField]
-    private int hp;
-    public int HP
-    {
-        get { return hp; }
-    }
-
 
     // Use this for initialization
     void Start () {
@@ -36,15 +29,6 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             transform.rotation = Quaternion.identity;
 
-        }
-    }
-
-    public void Attack(int value)
-    {
-        hp -= value;
-        if (hp == 0)
-        {
-            Destroy(this);
         }
     }
 }

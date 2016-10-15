@@ -33,7 +33,9 @@ public class PlayerShoot : MonoBehaviour {
 	}
 
     void Shoot() {
-        Debug.Log("Let's go !");
+
+        AudioManager.GetManager().PlayShoot();
+
         GameObject go = (GameObject)Instantiate(ammo, transform.position, Quaternion.identity);
 
         Debug.Log(lookAt);

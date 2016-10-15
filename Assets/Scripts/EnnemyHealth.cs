@@ -23,12 +23,14 @@ public class EnnemyHealth : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.CompareTag("Ammo")) {
+            AudioManager.GetManager().PlayHit();
             Destroy(coll.gameObject);
             health -= coll.GetComponent<Ammo>().HitPoints;
         }
     }
 
     void Die() {
+        AudioManager.GetManager().PlayDie();
         Destroy(gameObject);
     }
 }
