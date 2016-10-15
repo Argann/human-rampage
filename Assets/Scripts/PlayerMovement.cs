@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        if (x != 0.0f) {
+            transform.rotation = x > 0.0f ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+        }
+
         rb.velocity = new Vector2(xSpeed * x * Time.deltaTime, ySpeed * y * Time.deltaTime);
     }
 
