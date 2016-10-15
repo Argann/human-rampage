@@ -2,17 +2,17 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class EnnemyHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
 
-    [SerializeField]
-    [Range(10, 200)]
     private int maxHealth;
 
     private int health;
 
 	// Use this for initialization
 	void Start () {
+        maxHealth = GameManager.GetManager().EnemyHealth;
         health = maxHealth;
+
 	}
 
     void Update() {
@@ -24,6 +24,7 @@ public class EnnemyHealth : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.CompareTag("Ammo")) {
             AudioManager.GetManager().PlayHit();
+            ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerHit);
             Destroy(coll.gameObject);
             health -= coll.GetComponent<Ammo>().HitPoints;
         }
@@ -31,6 +32,7 @@ public class EnnemyHealth : MonoBehaviour {
 
     void Die() {
         AudioManager.GetManager().PlayDie();
-        Destroy(gameObject);
+        ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerEnemy);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

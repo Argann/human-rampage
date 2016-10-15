@@ -2,13 +2,16 @@
 
 public class Spawn : MonoBehaviour
 {
-    public GameObject enemy;                // The enemy prefab to be spawned.
-    public float spawnTime = 3f;            // How long between each spawn.
-    public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
+    private GameObject enemy;                // The enemy prefab to be spawned.
+    private float spawnTime = 3f;            // How long between each spawn.
+    private Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
 
     void Start()
     {
+        enemy = GameManager.GetManager().Enemy;
+        spawnTime = GameManager.GetManager().EnemySpawnTime;
+        spawnPoints = GameManager.GetManager().SpawnPoints;
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
         InvokeRepeating("Spawner", spawnTime, spawnTime);
     }
