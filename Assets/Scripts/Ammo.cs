@@ -23,7 +23,4 @@ public class Ammo : MonoBehaviour {
         Destroy(gameObject);
     }
 
-
-
-
 }
