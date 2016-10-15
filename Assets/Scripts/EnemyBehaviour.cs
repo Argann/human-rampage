@@ -28,8 +28,15 @@ public class EnemyBehaviour : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, mousePosition, speed * Time.deltaTime);
 
         //Et le regarde
-        Vector3 dir = mousePosition - transform.position;
-        this.GetComponent<SpriteRenderer>().flipX = (dir.x < 0);
+        if (transform.position.x < mousePosition.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+
+        }
     }
 
     public void Attack(int value)
