@@ -150,6 +150,25 @@ public class GameManager : MonoBehaviour {
         set { spawnPoints = value; }
     }
 
+    [Space(10)]
+
+    [SerializeField]
+    private int scorePerEnemy;
+
+    public int ScorePerEnemy {
+        get { return scorePerEnemy; }
+        set { scorePerEnemy = value; }
+    }
+
+    [SerializeField]
+    private int scorePerHit;
+
+    public int ScorePerHit {
+        get { return scorePerHit; }
+        set { scorePerHit = value; }
+    }
+
+
     /**
      * ====================================================
      *                     MISC

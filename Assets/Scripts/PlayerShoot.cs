@@ -36,8 +36,6 @@ public class PlayerShoot : MonoBehaviour {
 
         GameObject go = (GameObject)Instantiate(ammo, transform.position, Quaternion.identity);
 
-        Debug.Log(lookAt);
-
         go.GetComponent<Rigidbody2D>().velocity = lookAt * ammo_speed;
 
         lastShootTime = cooldown + Time.time;

@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll) {
         if (coll.gameObject.CompareTag("Ammo")) {
             AudioManager.GetManager().PlayHit();
+            ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerHit);
             Destroy(coll.gameObject);
             health -= coll.GetComponent<Ammo>().HitPoints;
         }
@@ -31,6 +32,7 @@ public class EnemyHealth : MonoBehaviour {
 
     void Die() {
         AudioManager.GetManager().PlayDie();
+        ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerEnemy);
         Destroy(gameObject.transform.parent.gameObject);
     }
 }

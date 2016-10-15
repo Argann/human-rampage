@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	
 	public void Hit(int damage) {
-        print("Ouch ! PV RESTANT : " + currentHealth);
         currentHealth -= damage;
         if (currentHealth <= 0) {
             Die();
