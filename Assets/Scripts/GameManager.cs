@@ -20,6 +20,14 @@ public class GameManager : MonoBehaviour {
         set { playerHealth = value; }
     }
 
+    private int currentPlayerHealth;
+
+    public int CurrentPlayerHealth {
+        get { return currentPlayerHealth; }
+        set { currentPlayerHealth = value; }
+    }
+
+
     [Space(10)]
 
     [SerializeField]
@@ -192,6 +200,15 @@ public class GameManager : MonoBehaviour {
         get { return lootHeal; }
         set { lootHeal = value; }
     }
+
+    [SerializeField]
+    private int scorePerHeal;
+
+    public int ScorePerHeal {
+        get { return scorePerHeal; }
+        set { scorePerHeal = value; }
+    }
+
 
 
 

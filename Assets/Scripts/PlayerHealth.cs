@@ -11,11 +11,13 @@ public class PlayerHealth : MonoBehaviour {
 	void Start () {
         maxHealth = GameManager.GetManager().PlayerHealth;
         currentHealth = maxHealth;
-	}
+        GameManager.GetManager().CurrentPlayerHealth = currentHealth;
+    }
 	
 	public void Hit(int damage) {
         print("Ouch !");
         currentHealth -= damage;
+        GameManager.GetManager().CurrentPlayerHealth = currentHealth;
         if (currentHealth <= 0) {
             Die();
         }
@@ -28,6 +30,8 @@ public class PlayerHealth : MonoBehaviour {
 
     public void Heal(int heal) {
         currentHealth = (currentHealth + heal) <= maxHealth ? currentHealth + heal : maxHealth;
+        ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerHeal);
+        GameManager.GetManager().CurrentPlayerHealth = currentHealth;
     }
 
     void OnTriggerEnter2D(Collider2D coll) {

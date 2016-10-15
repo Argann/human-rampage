@@ -14,7 +14,15 @@ public class Ammo : MonoBehaviour {
     void Start() {
         hitPoints = GameManager.GetManager().AmmoHitPoints;
         gameObject.tag = "Ammo";
+        StartCoroutine(waitForDestroy());
+
     }
+
+    IEnumerator waitForDestroy() {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+    }
+
 
 
 
