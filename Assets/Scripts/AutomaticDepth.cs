@@ -3,15 +3,23 @@ using System.Collections;
 
 public class AutomaticDepth : MonoBehaviour {
 
-    [SerializeField]
-    private static float maxY = 100.0f;
-    [SerializeField]
-    private static float minY = -100.0f;
 
-    [SerializeField]
-    private static float minZ = -8.0f;
-    [SerializeField]
-    private static float maxZ = -6.0f;
+    private static float maxY;
+
+    private static float minY;
+
+
+    private static float minZ;
+
+    private static float maxZ;
+
+
+    void Start() {
+        maxY = GameManager.GetManager().MaxY;
+        maxZ = GameManager.GetManager().MaxZ;
+        minY = GameManager.GetManager().MinY;
+        minZ = GameManager.GetManager().MinZ;
+    }
 
     void FixedUpdate() {
         float y_percent = ((transform.position.y - minY) * 100) / (maxY - minY);

@@ -3,12 +3,12 @@ using System.Collections;
 
 public class EnemyAttackBehaviour : MonoBehaviour {
 
-    [SerializeField]
     private float cooldown;
     private float cooldownT;
 
     // Use this for initialization
     void Start () {
+        cooldown = GameManager.GetManager().CooldownEnemy;
         cooldownT = 0f;
 	}
 	

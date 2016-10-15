@@ -3,17 +3,12 @@ using System.Collections;
 
 public class PlayerShoot : MonoBehaviour {
 
-    [SerializeField]
-    [Range(0.2f, 1.0f)]
     private float cooldown;
 
     private float lastShootTime;
 
-    [SerializeField]
     private GameObject ammo;
 
-    [SerializeField]
-    [Range(1.0f, 500.0f)]
     private float ammo_speed;
 
     private Vector2 lookAt;
@@ -22,6 +17,9 @@ public class PlayerShoot : MonoBehaviour {
 	void Start () {
         lookAt = Vector2.right;
         lastShootTime = Time.time;
+        cooldown = GameManager.GetManager().ShootCooldown;
+        ammo = GameManager.GetManager().Ammo;
+        ammo_speed = GameManager.GetManager().AmmoSpeed;
 	}
 	
 	// Update is called once per frame
