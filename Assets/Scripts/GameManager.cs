@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
         set { playerHealth = value; }
     }
 
-    [Space(15)]
+    [Space(10)]
 
     [SerializeField]
     [Range(100.0f, 300.0f)]
@@ -48,11 +48,27 @@ public class GameManager : MonoBehaviour {
     [Header("Munitions")]
 
     [SerializeField]
+    private GameObject ammo;
+
+    public GameObject Ammo {
+        get { return ammo; }
+        set { ammo = value; }
+    }
+
+    [SerializeField]
     private int ammoHitPoints;
 
     public int AmmoHitPoints {
         get { return ammoHitPoints; }
         set { ammoHitPoints = value; }
+    }
+
+    [SerializeField]
+    private float ammoSpeed;
+
+    public float AmmoSpeed {
+        get { return ammoSpeed; }
+        set { ammoSpeed = value; }
     }
 
     [SerializeField]
@@ -64,21 +80,6 @@ public class GameManager : MonoBehaviour {
         set { shootCooldown = value; }
     }
 
-    [SerializeField]
-    private GameObject ammo;
-
-    public GameObject Ammo {
-        get { return ammo; }
-        set { ammo = value; }
-    }
-
-    [SerializeField]
-    private float ammoSpeed;
-
-    public float AmmoSpeed {
-        get { return ammoSpeed; }
-        set { ammoSpeed = value; }
-    }
 
     /**
      * ====================================================
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour {
         set { enemy = value; }
     }
 
-    [Space(15)]
+    [Space(10)]
 
     [SerializeField]
     private int enemyHealth;
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour {
         set { enemySpeed = value; }
     }
 
-    [Space(15)]
+    [Space(10)]
 
     [SerializeField]
     private int enemyDamage;
@@ -131,7 +132,7 @@ public class GameManager : MonoBehaviour {
         set { cooldownEnemy = value; }
     }
 
-    [Space(15)]
+    [Space(10)]
 
     [SerializeField]
     private float enemySpawnTime;
@@ -185,7 +186,6 @@ public class GameManager : MonoBehaviour {
         set { maxY = value; }
     }
 
-    [Space(15)]
 
     public static GameManager GetManager() {
         return GameObject.Find("GameManager").GetComponent<GameManager>();
