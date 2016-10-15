@@ -28,7 +28,7 @@ public class PlayerShoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetAxisRaw("Fire") > 0.0f && lastShootTime <= Time.time) {
-            lookAt = transform.right;
+            lookAt = new Vector2(transform.localScale.x, 0.0f);
             Shoot();
         }
 	}

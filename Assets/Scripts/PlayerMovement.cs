@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
         float y = Input.GetAxisRaw("Vertical");
 
         if (x != 0.0f) {
-            transform.rotation = x > 0.0f ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+            transform.localScale = x < 0.0f ? new Vector3(-1f, 1f, 1f) : new Vector3(1f, 1f, 1f);
         }
 
         anim.SetBool("idle", (x == 0.0f && y == 0.0f));
