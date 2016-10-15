@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour {
         set { playerHealth = value; }
     }
 
+    [Space(15)]
+
     [SerializeField]
     [Range(100.0f, 300.0f)]
     private float playerXSpeed;
@@ -93,14 +95,7 @@ public class GameManager : MonoBehaviour {
         set { enemy = value; }
     }
 
-    [SerializeField]
-    private int enemyDamage;
-
-    public int EnemyDamage {
-        get { return enemyDamage; }
-        set { enemyDamage = value; }
-    }
-
+    [Space(15)]
 
     [SerializeField]
     private int enemyHealth;
@@ -118,6 +113,16 @@ public class GameManager : MonoBehaviour {
         set { enemySpeed = value; }
     }
 
+    [Space(15)]
+
+    [SerializeField]
+    private int enemyDamage;
+
+    public int EnemyDamage {
+        get { return enemyDamage; }
+        set { enemyDamage = value; }
+    }
+
     [SerializeField]
     private float cooldownEnemy;
 
@@ -125,6 +130,8 @@ public class GameManager : MonoBehaviour {
         get { return cooldownEnemy; }
         set { cooldownEnemy = value; }
     }
+
+    [Space(15)]
 
     [SerializeField]
     private float enemySpawnTime;
@@ -177,6 +184,8 @@ public class GameManager : MonoBehaviour {
         get { return maxY; }
         set { maxY = value; }
     }
+
+    [Space(15)]
 
     public static GameManager GetManager() {
         return GameObject.Find("GameManager").GetComponent<GameManager>();
