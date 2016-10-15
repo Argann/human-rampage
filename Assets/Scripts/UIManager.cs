@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        life.text = GameManager.GetManager().CurrentPlayerHealth + "/" + GameManager.GetManager().PlayerHealth;
+        int health = GameManager.GetManager().CurrentPlayerHealth;
+        life.text = (health < 0 ? "0" : health.ToString())  + "/" + GameManager.GetManager().PlayerHealth;
         life_image.fillAmount = (float)GameManager.GetManager().CurrentPlayerHealth / (float)GameManager.GetManager().PlayerHealth;
         score.text = ""+ScoreManager.GetManager().GetScore();
 

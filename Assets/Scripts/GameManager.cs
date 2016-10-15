@@ -209,7 +209,20 @@ public class GameManager : MonoBehaviour {
         set { scorePerHeal = value; }
     }
 
+    /**
+     * ====================================================
+     *                     BACKGROUND
+     * ====================================================
+     */
+    [Header("Background")]
+    [SerializeField]
+    private GameObject[] backgrounds;
 
+    public GameObject[] Backgrounds
+    {
+        get { return backgrounds; }
+        set { backgrounds = value; }
+    }
 
 
 
