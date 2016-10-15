@@ -4,7 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Ammo : MonoBehaviour {
 
-    [SerializeField]
     private int hitPoints;
 
     public int HitPoints {
@@ -13,6 +12,7 @@ public class Ammo : MonoBehaviour {
     }
 
     void Start() {
+        hitPoints = GameManager.GetManager().AmmoHitPoints;
         gameObject.tag = "Ammo";
     }
 

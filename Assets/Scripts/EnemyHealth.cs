@@ -2,17 +2,17 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class EnnemyHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour {
 
-    [SerializeField]
-    [Range(10, 200)]
     private int maxHealth;
 
     private int health;
 
 	// Use this for initialization
 	void Start () {
+        maxHealth = GameManager.GetManager().EnemyHealth;
         health = maxHealth;
+
 	}
 
     void Update() {
@@ -31,6 +31,6 @@ public class EnnemyHealth : MonoBehaviour {
 
     void Die() {
         AudioManager.GetManager().PlayDie();
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
