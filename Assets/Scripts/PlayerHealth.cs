@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 	
 	public void Hit(int damage) {
+        print("Ouch !");
         currentHealth -= damage;
         if (currentHealth <= 0) {
             Die();
@@ -23,5 +24,17 @@ public class PlayerHealth : MonoBehaviour {
     void Die() {
         AudioManager.GetManager().PlayDie();
         gameObject.SetActive(false);
+    }
+
+    public void Heal(int heal) {
+        currentHealth = (currentHealth + heal) <= maxHealth ? currentHealth + heal : maxHealth;
+    }
+
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.gameObject.CompareTag("HealLoot")) {
+            AudioManager.GetManager().PlayHeal();
+            Heal(GameManager.GetManager().LootHeal);
+            Destroy(coll.gameObject);
+        }
     }
 }

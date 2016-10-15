@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour {
     private AudioClip hit;
     [SerializeField]
     private AudioClip die;
+    [SerializeField]
+    private AudioClip heal;
 
     public void PlayShoot() {
         GetComponent<AudioSource>().PlayOneShot(shoot);
@@ -21,6 +23,10 @@ public class AudioManager : MonoBehaviour {
 
     public void PlayDie() {
         GetComponent<AudioSource>().PlayOneShot(die);
+    }
+
+    public void PlayHeal() {
+        GetComponent<AudioSource>().PlayOneShot(heal);
     }
 
     public static AudioManager GetManager() {

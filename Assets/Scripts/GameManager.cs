@@ -168,6 +168,33 @@ public class GameManager : MonoBehaviour {
         set { scorePerHit = value; }
     }
 
+    [Space(10)]
+    [SerializeField]
+    private GameObject[] loots;
+
+    public GameObject[] Loots {
+        get { return loots; }
+        set { loots = value; }
+    }
+
+    [SerializeField]
+    private float lootChance;
+
+    public float LootChance {
+        get { return lootChance; }
+        set { lootChance = value; }
+    }
+
+    [SerializeField]
+    private int lootHeal;
+
+    public int LootHeal {
+        get { return lootHeal; }
+        set { lootHeal = value; }
+    }
+
+
+
 
     /**
      * ====================================================
