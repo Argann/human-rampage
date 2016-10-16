@@ -210,6 +210,15 @@ public class GameManager : MonoBehaviour {
     }
 
     [SerializeField]
+    private int lootMaxHealth;
+
+    public int LootMaxHealth {
+        get { return lootMaxHealth; }
+        set { lootMaxHealth = value; }
+    }
+
+
+    [SerializeField]
     private int lootAttack;
 
     public int LootAttack {

@@ -6,6 +6,12 @@ public class PlayerHealth : MonoBehaviour {
 
     private int maxHealth;
 
+    public int MaxHealth {
+        get { return maxHealth; }
+        set { maxHealth = value; }
+    }
+
+
     private int currentHealth;
 
 	// Use this for initialization

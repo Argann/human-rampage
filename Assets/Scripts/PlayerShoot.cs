@@ -52,6 +52,8 @@ public class PlayerShoot : MonoBehaviour {
             AudioManager.GetManager().PlayHeal();
             ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerLootAttack);
             GameManager.GetManager().AmmoHitPoints += GameManager.GetManager().LootAttack;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().MaxHealth += GameManager.GetManager().LootMaxHealth;
+            GameManager.GetManager().PlayerHealth += GameManager.GetManager().LootMaxHealth;
             cooldownBeforeCyborgisation -= 1;
             Destroy(coll.gameObject);
         }

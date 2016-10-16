@@ -39,7 +39,6 @@ public class Difficulty : MonoBehaviour {
 
             GameManager.GetManager().CurrentTimeLevel = Mathf.InverseLerp(nextLevel-timeLevel, nextLevel, Time.time);
             GameManager.GetManager().CurrentLevel = level;
-            print(GameManager.GetManager().CurrentTimeLevel);
             yield return null;
 
         }
