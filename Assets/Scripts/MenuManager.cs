@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
@@ -15,6 +16,9 @@ public class MenuManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	
+	    if (Input.anyKeyDown)
+        {
+            SceneManager.LoadScene("main_scene");
+        }
 	}
 }

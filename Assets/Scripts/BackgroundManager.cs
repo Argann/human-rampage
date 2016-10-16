@@ -23,7 +23,7 @@ public class BackgroundManager : MonoBehaviour {
             int rand = Random.Range(0, GameManager.GetManager().Backgrounds.Length);
             GameObject background = GameManager.GetManager().Backgrounds[rand];
             has_not_created = false;
-            Instantiate(background, this.transform.position + Vector3.right * 10.62f, transform.rotation);
+            Instantiate(background, this.transform.position + Vector3.right * 11.62f, transform.rotation);
         }
     }
 }
