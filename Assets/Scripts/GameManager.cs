@@ -269,6 +269,60 @@ public class GameManager : MonoBehaviour {
      * ====================================================
      */
 
+    [Header("Difficulty")]
+
+    [SerializeField]
+    private float timeLevel;
+
+    public float TimeLevel {
+        get { return timeLevel; }
+        set { timeLevel = value; }
+    }
+
+    [SerializeField]
+    private int enemyAttackBoost;
+
+    public int EnemyAttackBoost {
+        get { return enemyAttackBoost; }
+        set { enemyAttackBoost = value; }
+    }
+
+    [SerializeField]
+    private int enemyHealthBoost;
+
+    public int EnemyHealthBoost {
+        get { return enemyHealthBoost; }
+        set { enemyHealthBoost = value; }
+    }
+
+    [SerializeField]
+    private float  enemySpeedBoost;
+
+    public float  EnemySpeedBoost {
+        get { return enemySpeedBoost; }
+        set { enemySpeedBoost = value; }
+    }
+
+    private float currentTimeLevel;
+
+    public float CurrentTimeLevel {
+        get { return currentTimeLevel; }
+        set { currentTimeLevel = value; }
+    }
+
+    private int currentLevel;
+
+    public int CurrentLevel {
+        get { return currentLevel; }
+        set { currentLevel = value; }
+    }
+
+
+
+
+
+
+
     [Header("Misc")]
     [SerializeField]
     private float minZ;
@@ -298,6 +352,8 @@ public class GameManager : MonoBehaviour {
         get { return maxY; }
         set { maxY = value; }
     }
+
+   
 
 
     public static GameManager GetManager() {
