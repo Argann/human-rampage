@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -25,6 +26,11 @@ public class PlayerHealth : MonoBehaviour {
     void Die() {
         AudioManager.GetManager().PlayDie();
         gameObject.SetActive(false);
+        if (PlayerPrefs.GetInt("highscore", 0) < ScoreManager.GetManager().GetScore())
+        {
+            PlayerPrefs.SetInt("highscore", ScoreManager.GetManager().GetScore());
+        }
+        SceneManager.LoadScene("menu");
     }
 
     public void Heal(int heal) {
