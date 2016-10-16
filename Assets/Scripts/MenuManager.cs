@@ -5,18 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+    [SerializeField]
+    private Text highscore;
+
 	// Use this for initialization
 	void Start () {
-        Sprite pressedSprite = Resources.Load<Sprite>("Sprites/button-dark.png");
-        //Sprite defaultSprite = Resources.Load<Sprite>("Sprites/button-dark-outline.png");
-        SpriteState st = new SpriteState();
-        st.pressedSprite = pressedSprite;
-        GetComponent<Button>().spriteState = st;
+        highscore.text += PlayerPrefs.GetInt("highscore", 0);
     }
 
     // Update is called once per frame
     void Update () {
-	    if (Input.anyKeyDown)
+	    if (Input.anyKeyDown && !Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene("main_scene");
         }
