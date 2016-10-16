@@ -22,8 +22,8 @@ public class AutomaticDepth : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        float y_percent = ((transform.position.y - minY) * 100) / (maxY - minY);
-        ChangeZ((y_percent * (maxZ - minZ) / 100) + minZ);
+        float y_percent = Mathf.InverseLerp(minY, maxY, transform.position.y);
+        ChangeZ(Mathf.Lerp(minZ, maxZ, y_percent));
     }
 
 
