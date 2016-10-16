@@ -34,7 +34,7 @@ public class BackgroundManager : MonoBehaviour {
                 GameObject prop = GameManager.GetManager().Props[randProp];
                 float randx = Random.Range(-3f, 4f);
                 float randy = Random.Range(-3f, 2f);
-                Instantiate(prop, this.transform.position + Vector3.right * 11.62f + new Vector3(randx, randy, 0), transform.rotation);
+                Instantiate(prop, this.transform.position + Vector3.right * 11.62f + new Vector3(randx, randy, -0.1f), transform.rotation);
             }
         }
     }
