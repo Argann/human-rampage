@@ -3,6 +3,32 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+    private float timeScale;
+
+    void Start()
+    {
+        timeScale = Time.timeScale;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Time.timeScale = (Time.timeScale == 0 ? timeScale : 0);
+            if (this.GetComponent<AudioSource>().isPlaying)
+            {
+                this.GetComponent<AudioSource>().Stop();
+            }
+            else
+            {
+                this.GetComponent<AudioSource>().Play();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
     /**
      * ====================================================

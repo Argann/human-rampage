@@ -18,7 +18,11 @@ public class MenuManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	    if (Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !credits.activeInHierarchy)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !credits.activeInHierarchy)
         {
             SceneManager.LoadScene("main_scene");
         }
