@@ -19,6 +19,20 @@ public class EnemyAttackBehaviour : MonoBehaviour {
 	void Update () {
     }
 
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.CompareTag("Player")) {
+            transform.parent.GetComponent<Animator>().SetBool("attack", true);
+            transform.parent.GetComponent<EnemyBehaviour>().IsAttacking = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D coll) {
+        if (coll.CompareTag("Player")) {
+            transform.parent.GetComponent<Animator>().SetBool("attack", false);
+            transform.parent.GetComponent<EnemyBehaviour>().IsAttacking = false;
+        }
+    }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player") && cooldownT <= Time.time)
