@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour {
 
     void Die() {
         AudioManager.GetManager().PlayDie();
+        CameraShake.CamShake();
         ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerEnemy);
         Destroy(gameObject.transform.parent.gameObject);
     }
