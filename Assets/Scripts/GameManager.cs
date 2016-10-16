@@ -209,6 +209,24 @@ public class GameManager : MonoBehaviour {
         set { scorePerHeal = value; }
     }
 
+    [SerializeField]
+    private int lootAttack;
+
+    public int LootAttack {
+        get { return lootAttack; }
+        set { lootAttack = value; }
+    }
+
+    [SerializeField]
+    private int scorePerLootAttack;
+
+    public int ScorePerLootAttack {
+        get { return scorePerLootAttack; }
+        set { scorePerLootAttack = value; }
+    }
+
+
+
     /**
      * ====================================================
      *                     BACKGROUND
