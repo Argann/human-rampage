@@ -15,6 +15,8 @@ public class PlayerShoot : MonoBehaviour {
 
     private Vector2 lookAt;
 
+    private int cooldownBeforeCyborgisation;
+
 	// Use this for initialization
 	void Start () {
         lookAt = Vector2.right;
@@ -23,6 +25,7 @@ public class PlayerShoot : MonoBehaviour {
         ammo = GameManager.GetManager().Ammo;
         ammo_speed = GameManager.GetManager().AmmoSpeed;
         gun = GameObject.Find("Gun");
+        cooldownBeforeCyborgisation = GameManager.GetManager().LootsBeforeCyborgisation;
 	}
 	
 	// Update is called once per frame
@@ -49,7 +52,14 @@ public class PlayerShoot : MonoBehaviour {
             AudioManager.GetManager().PlayHeal();
             ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerLootAttack);
             GameManager.GetManager().AmmoHitPoints += GameManager.GetManager().LootAttack;
+            cooldownBeforeCyborgisation -= 1;
             Destroy(coll.gameObject);
+        }
+
+        if (cooldownBeforeCyborgisation <= 0) {
+            print("HUEHUEHUEHUEHUE");
+            cooldownBeforeCyborgisation = GameManager.GetManager().LootsBeforeCyborgisation;
+            PlayerMovement.GetPlayerAnimator().SetInteger("CyborgState", PlayerMovement.GetPlayerAnimator().GetInteger("CyborgState") + 1);
         }
     }
 }

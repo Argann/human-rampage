@@ -36,4 +36,9 @@ public class PlayerMovement : MonoBehaviour {
         rb.velocity = new Vector2(xSpeed * x * Time.deltaTime, ySpeed * y * Time.deltaTime);
     }
 
+
+    public static Animator GetPlayerAnimator() {
+        return GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
+
 }
