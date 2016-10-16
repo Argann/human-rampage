@@ -251,6 +251,16 @@ public class GameManager : MonoBehaviour {
         set { backgrounds = value; }
     }
 
+    [SerializeField]
+    private GameObject[] props;
+
+    public GameObject[] Props
+    {
+        get { return props; }
+        set { props = value; }
+    }
+
+
 
 
     /**
