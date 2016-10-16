@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour {
 
     private float timeScale;
 
+    [SerializeField]
+    private GameObject screenPause;
+
     void Start()
     {
         timeScale = Time.timeScale;
@@ -15,6 +18,8 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.P))
         {
             Time.timeScale = (Time.timeScale == 0 ? timeScale : 0);
+            screenPause.SetActive(!screenPause.activeSelf);
+
             if (this.GetComponent<AudioSource>().isPlaying)
             {
                 this.GetComponent<AudioSource>().Stop();
