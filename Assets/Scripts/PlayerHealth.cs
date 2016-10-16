@@ -15,7 +15,6 @@ public class PlayerHealth : MonoBehaviour {
     }
 	
 	public void Hit(int damage) {
-        print("Ouch !");
         currentHealth -= damage;
         GameManager.GetManager().CurrentPlayerHealth = currentHealth;
         if (currentHealth <= 0) {
