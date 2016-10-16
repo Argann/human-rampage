@@ -42,7 +42,14 @@ public class PlayerShoot : MonoBehaviour {
         go.GetComponent<Rigidbody2D>().velocity = lookAt * ammo_speed;
 
         lastShootTime = cooldown + Time.time;
+    }
 
-        
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.gameObject.CompareTag("AttackLoot")) {
+            AudioManager.GetManager().PlayHeal();
+            ScoreManager.GetManager().AddScore(GameManager.GetManager().ScorePerLootAttack);
+            GameManager.GetManager().AmmoHitPoints += GameManager.GetManager().LootAttack;
+            Destroy(coll.gameObject);
+        }
     }
 }
