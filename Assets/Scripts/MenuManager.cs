@@ -8,6 +8,9 @@ public class MenuManager : MonoBehaviour {
     [SerializeField]
     private Text highscore;
 
+    [SerializeField]
+    private GameObject credits;
+
 	// Use this for initialization
 	void Start () {
         highscore.text += PlayerPrefs.GetInt("highscore", 0);
@@ -20,4 +23,9 @@ public class MenuManager : MonoBehaviour {
             SceneManager.LoadScene("main_scene");
         }
 	}
+
+    public void Credits_OnClick()
+    {
+        credits.SetActive(true);
+    }
 }
