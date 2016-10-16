@@ -225,6 +225,15 @@ public class GameManager : MonoBehaviour {
         set { scorePerLootAttack = value; }
     }
 
+    [SerializeField]
+    private int lootsBeforeCyborgisation;
+
+    public int LootsBeforeCyborgisation {
+        get { return lootsBeforeCyborgisation; }
+        set { lootsBeforeCyborgisation = value; }
+    }
+
+
 
 
     /**
