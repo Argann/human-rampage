@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour {
         score.text = ""+ScoreManager.GetManager().GetScore();
 
         level_image.fillAmount = GameManager.GetManager().CurrentTimeLevel;
-        level.text = "Level " + GameManager.GetManager().CurrentLevel;
+        level.text = "Level " + GameManager.GetManager().Level;
 
 	}
 }

@@ -19,8 +19,8 @@ public class Ammo : MonoBehaviour {
     }
 
     IEnumerator waitForDestroy() {
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(0.6f);
+		Destroy(gameObject);
     }
 
 }

@@ -16,7 +16,7 @@ public class Difficulty : MonoBehaviour {
     private float enemySpeedBoost;
 
     void Start() {
-        level = 1;
+		level = GameManager.GetManager().Level;
         timeLevel = GameManager.GetManager().TimeLevel;
         enemyDamageBoost = GameManager.GetManager().EnemyAttackBoost;
         enemyHealthBoost = GameManager.GetManager().EnemyHealthBoost;
@@ -38,7 +38,7 @@ public class Difficulty : MonoBehaviour {
             }
 
             GameManager.GetManager().CurrentTimeLevel = Mathf.InverseLerp(nextLevel-timeLevel, nextLevel, Time.time);
-            GameManager.GetManager().CurrentLevel = level;
+			GameManager.GetManager().Level = level;
             yield return null;
 
         }

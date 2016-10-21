@@ -15,7 +15,7 @@ public class Loot : MonoBehaviour {
 	
 	void OnDestroy() {
         if (Random.Range(0.0f, 1.0f) <= lootChance) {
-            Instantiate(loots[(int)Random.Range(0, Mathf.Round(loots.Length))], transform.position, Quaternion.identity);
+			GameObject loot = (GameObject) Instantiate(loots[(int)Random.Range(0, Mathf.Round(loots.Length))], transform.position, Quaternion.identity);
         }
     }
 }

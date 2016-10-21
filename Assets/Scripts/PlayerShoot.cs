@@ -61,6 +61,7 @@ public class PlayerShoot : MonoBehaviour {
         if (cooldownBeforeCyborgisation <= 0) {
             cooldownBeforeCyborgisation = GameManager.GetManager().LootsBeforeCyborgisation;
             PlayerMovement.GetPlayerAnimator().SetInteger("CyborgState", PlayerMovement.GetPlayerAnimator().GetInteger("CyborgState") + 1);
+			GameManager.GetManager ().ShootCooldown = GameManager.GetManager ().ShootCooldown - .2f;
         }
     }
 }

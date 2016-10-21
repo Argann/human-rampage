@@ -22,6 +22,9 @@ public class Spawn : MonoBehaviour
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
 
+		// Possibility to spawn different kinds of enemies depending on the current level
+		// GameManager.GetManager().Level;
+
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
         Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }

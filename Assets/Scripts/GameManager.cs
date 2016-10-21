@@ -350,11 +350,12 @@ public class GameManager : MonoBehaviour {
         set { currentTimeLevel = value; }
     }
 
-    private int currentLevel;
+	[SerializeField]
+    private int level;
 
-    public int CurrentLevel {
-        get { return currentLevel; }
-        set { currentLevel = value; }
+    public int Level {
+        get { return level; }
+        set { level = value; }
     }
 
 
@@ -393,8 +394,12 @@ public class GameManager : MonoBehaviour {
         set { maxY = value; }
     }
 
-   
+	private GameObject[] droppedLoots;
 
+	public GameObject[] DroppedLoots {
+		get { return droppedLoots; }
+		set { droppedLoots = value; }
+	}
 
     public static GameManager GetManager() {
         return GameObject.Find("GameManager").GetComponent<GameManager>();

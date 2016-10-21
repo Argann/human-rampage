@@ -40,6 +40,18 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void Die() {
+		GameObject[] toDestroy = GameObject.FindGameObjectsWithTag("AttackLoot");
+		foreach (GameObject current in toDestroy) {
+			Destroy (current);
+		}
+		toDestroy = GameObject.FindGameObjectsWithTag("HealLoot");
+		foreach (GameObject current in toDestroy) {
+			Destroy (current);
+		}
+		toDestroy = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach (GameObject current in toDestroy) {
+			Destroy (current);
+		}
         GetComponent<Animator>().SetBool("dead", true);
         AudioManager.GetManager().PlayDie();
         if (PlayerPrefs.GetInt("highscore", 0) < ScoreManager.GetManager().GetScore())
@@ -51,7 +63,7 @@ public class PlayerHealth : MonoBehaviour {
 
     IEnumerator quit() {
         fadeOut.CrossFadeAlpha(1.0f, 1.0f, false);
-        while (fadeOut.canvasRenderer.GetAlpha() < 1.0f) {
+        while (fadeOut.canvasRenderer.GetAlpha() < 0.9f) {
             yield return null;
         }
         SceneManager.LoadScene("final_scene");
